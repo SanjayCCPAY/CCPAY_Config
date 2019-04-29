@@ -1,0 +1,252 @@
+# ---- JWT configuration
+app:
+    jwt:
+        header: Authorization
+        prefix: Bearer
+        secret: Laptop@99
+        expiration: 900000
+        claims:
+            refresh:
+                name: Refresh
+                
+#---- Database connection 
+
+
+db:
+    driverClassName: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ccpay
+    userName: cpay
+    password: Cpay@123
+
+#---- Mail Settings
+
+spring:
+    mail:
+        default-encoding: UTF-8
+        host: smtp.gmail.com
+        username: cyberchainpay@gmail.com
+        password: xTKRHANLbLRy6aG
+        port: 587
+        protocol: smtp
+        debug: true
+        smtp:
+            auth: true
+            starttls:
+                enable: true
+     
+# ---- API URL
+external:
+    apiUrl:
+        AuthTokenGeneratorApi: http://localhost:55001/api/v1/uservalidator/createSession
+        TokenValidatorApi: http://localhost:55001/api/v1/uservalidator/validateToken?authToken=
+        UploadBatchFile: http://localhost:55001/api/v1/payloadvalidator/uploadFile
+        CreatePartyAPI: http://localhost:55001/api/v1/partyprofile/createProfile
+        ListProfileAPI: http://localhost:55001/api/v1/partyprofile/getProfileList
+        AP,AS: http://localhost:55001/api/v1/partyprofile/activateProfile
+        AP: http://localhost:55001/api/v1/partyprofile/rejectProfile
+        AA: http://localhost:55001/api/v1/partyprofile/suspendProfile
+        AA,AR,AS: http://localhost:55001/api/v1/partyprofile/deleteProfile
+        GetProfileByPartyIdAPI: http://localhost:55001/api/v1/partyprofile/getProfileByPartyId
+        CreateBankAPI: http://localhost:36582/cpay/api/v1/bankaccount/add
+        ProfileConfigurationAPI: http://localhost:55001/api/v1/partyprofile/profileConfiguration
+        SearchBankAccountAPI: http://localhost:36582/cpay/api/v1/bankaccount/search
+        DeleteBankAccountAPI: http://localhost:36582/cpay/api/v1/bankaccount/delete
+        VerifyTransactionAPI: http://localhost:36585/cpay/api/v1/payload/verify
+        AuthorizeTransactionAPI: http://localhost:36585/cpay/api/v1/payload/authorize
+        SearchProfileAPI: http://localhost:55001/api/v1/partyprofile/searchProfile
+        GetProfileConfigurationAPI: http://localhost:55001/api/v1/partyprofile/getProfileConfiguration
+        AddBeneficiaryAPI: http://localhost:55001/api/v1/partyprofile/addBeneficiary
+        MapDBApi: http://localhost:55001/api/v1/dbservice/mapData?ptyId=
+        ProfileUploadApi: http://localhost:55001/api/v1/partyprofile/uploadProfile
+        ValidateOTPApi: http://localhost:55001/api/v1/twofa/validateOtpAuthToken
+        AddUserApi: http://localhost:55001/api/v1/userservice/addUser
+        PartyListByParentApi: http://localhost:55001/api/v1/userservice/partyList
+        UserListApi: http://localhost:55001/api/v1/userservice/getUserList
+        ResendOTPApi: http://localhost:55001/api/v1/userservice/sendOTP
+        UpdateStatusApi: http://localhost:55001/api/v1/userservice/updateStatus
+        UpdateUserDetailsApi: http://localhost:55001/api/v1/userservice/updateUser
+        postAckCommunicationAPI: http://localhost:36560/postAckMessage
+
+internal:
+    apiUrl:
+        authTokenAPI: http://authtoken-service/validateToken?authToken=
+        emailAPI: http://email-service/cpay/api/v1/email/sendEmail?emailSubject=
+        postCommunicationAPI: http://communication-service/postMessage
+        getProcessorIdAPI: http://processor-service/getProcessorId
+        transformerAPI: http://transformation-service/transformPayloadFeed
+        encryptPalyloadAPI: http://encryption-service/encryptPalyload
+        decryptFileAPI: http://encryption-service/decryptFile
+        processFTPPifFileAPI: http://payloadvalidator-service/processFTPFile
+        outboundSftpAPI: http://outboundsftp-service/uploadProcessorPayload
+        postAckCommunicationAPI: http://communication-service/postAckMessage
+        postFXCommunicationAPI: http://communication-service/postFXMessage
+        updateAckFileAPI: http://updateack-service/updateAckFile
+        saveFxFeedAPI: http://fxfeeddb-service/saveFxFeed
+        postValidPayloadAPI: http://communication-service/postValidPayload
+        postEmailMessageAPI: http://communication-service/postEmailMessage
+        savePayloadAPI: http://payloaddb-service/savePayload
+        sendEmailAPI: http://email-service/sendEmail
+        otpAPIUrl: http://2fa-service/generateOtpAuthURL
+        
+
+# ---- Portal Configuration
+portal:
+    pif:
+        AllowedFileType: "/(csv|xml|json|fin|rje)$/"
+        MaxFileAllowedSize: 10000000
+    profile:
+        ProfileAllowedFileType: "/(csv|json)$/"
+        ProfileMaxFileAllowedSize: 10000000
+    url: http://localhost:8080 
+        
+
+    
+# ---- Kafka Configuration
+kafka:
+    server: 0.0.0.0:9092
+KT1001: CCPAY_VALID_PAYLOAD
+KT1002: CCPAY_EMAIL_DATA
+KT1003: T_AUTHORIZED_PAYLOAD
+KT1004: T_PROCESSOR
+KT1005: T_TRANSFORMATION
+KT1006: T_ENCRYPTION
+KT1007: T_OUTBOUND_SFTP
+KT1008: T_INCOMING_ACK
+KT1009: T_FUND_COMPLETED
+KT1010: T_FX_FEED_VALIDATION
+KT1011: T_FX_FEED_COMPLETED
+
+# ---- Service Configuration
+SID36553:
+        name: user-service
+SID36554:
+        name: partyprofile-service
+        pendingProfile: AP
+        activeProfile: AA
+        rejectProfile: AR
+        suspendedProfile: AS
+        deleteProfile: DP
+        activeBankAccount: AA
+        activateAllowedStatus: AP,AS
+        rejectAllowedStatus: AP
+        suspendAllowedStatus: AA
+        deleteAllowedStatus: AA,AR,AS
+        fileAllowedType: csv,json
+SID36555:
+        name: partybank-service
+        activeBankAccount: AA
+        deleteBankAccount: DD
+        deleteAllowedAccount: DD
+SID36556:
+        name: payloadvalidator-service
+        fileAllowedType: rje,fin,xml,csv,json
+        pifUploadDir: D:\\CPay\\upload\\PIF_Upload\\
+SID36558:
+        name: authorization-Service
+        verifyCode: APPR
+        verifyExpectedCode: PNDG
+        authorizedCode: FNDI
+        authorizedExpectedCode: CPAS
+        verifyLineage: Transaction Approved
+        authorizedLineage: Fund tranfer initiated
+SID36559:
+        name: filewatcher-service
+        statusUpdateCSV: D:\\CPay\\Email\\
+SID36561: 
+        name: getProcessor-Service
+        kafkaId: KT1004
+SID36562:
+        name: transformation-Service
+        kafkaId: KT1005
+SID36563: 
+        name: encryption-Service
+        kafkaId: KT1006
+SID36564:
+        name: incomingfilewatcher-service
+SID36565:
+        name: updateack-service
+        successStatusCode: FDSC
+        failStatusCode: FDRJ
+SID36566:
+        name: fxfeedvalidator-service
+        fileAllowedType: csv,json
+        fileUploadDir: D:\\CPay\\upload\\FX_Upload\\
+        kafkaId: KT1010
+SID36567:
+        name: fxfeeddb-service
+        kafkaId: KT1011
+SID36592:
+        name: outboundsftp-service
+
+
+        
+
+# ---- Supported Encryptions
+
+supportedEncryption: PGP,AES 
+
+# ---- FX Consumer
+fx:
+    consumer:
+        C97770717717725317: 
+            KRW: 97638399640359623
+            CAD: 50000003
+            EUR: 97638399640344523
+            INR: 50000001
+            GBP: 50000006
+            JPY: 97638399640359849
+            PHP: 97638399640344342
+            
+            minimumTime: 10    
+    availability:
+        code:
+            not_published: NPUB
+            published: AVBL
+    status:
+        code:
+            active: AA
+
+# ---- Processor Configuration
+processorList: P97638399640359623,P97638399640382820
+processorService:
+    P97638399640359623:
+        serviceList: SID36562,SID36563
+        fileTransferChannel: SFTP
+        fileTransfer: LOCAL 
+        outgoingFile:  
+                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
+                    finalFilePath: D://temp//CCPAY//P97638399640359623//outgoing//
+                    fileFormat: CSV
+        encryption: 
+                    type: PGP
+                    publicKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//publicKey.asc
+                    secretKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//secretKey.asc
+                    passphrase: Admin@321$
+                    asciiArmored: true
+        incomingFile:
+                    incomingFilePath: D://temp//CCPAY//P97638399640359623//incoming//
+                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
+                    fileFormat: CSV
+                        
+                    
+    P97638399640382820:
+        serviceList: SID36562,SID36563,SID36592
+        fileTransferChannel: SFTP
+        fileTransfer: REMOTE
+        outgoingFile:  
+                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
+                    finalFilePath: D://temp//CCPAY//P97638399640382820//outgoing//
+                    fileFormat: CSV
+                    sftp:
+                        host: 199.175.44.205
+                        user: unicredit
+                        password: UnyC$re%dTTniC$T
+                        port: 2203
+                        remoteDirectory: /home/unicredit/
+        encryption: 
+                    type: AES
+                    key: Admin@321$
+        incomingFile:
+                    incomingFilePath: D://temp//CCPAY//P97638399640382820//incoming//
+                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
+                    fileFormat: CSV
