@@ -97,7 +97,7 @@ portal:
     profile:
         ProfileAllowedFileType: "/(csv|json)$/"
         ProfileMaxFileAllowedSize: 10000000
-    url: http://localhost:8080 
+    url: http://3.16.194.239:36580 
         
 
     
