@@ -140,7 +140,7 @@ SID36555:
 SID36556:
         name: payloadvalidator-service
         fileAllowedType: rje,fin,xml,csv,json
-        pifUploadDir: D:\\CPay\\upload\\PIF_Upload\\
+        pifUploadDir: /home/centos/apps/upload/PIF_Upload/
 SID36558:
         name: authorization-Service
         verifyCode: APPR
@@ -151,7 +151,7 @@ SID36558:
         authorizedLineage: Fund tranfer initiated
 SID36559:
         name: filewatcher-service
-        statusUpdateCSV: D:\\CPay\\Email\\
+        statusUpdateCSV: /var/lib/mysql/email/
 SID36561: 
         name: getProcessor-Service
         kafkaId: KT1004
@@ -170,7 +170,7 @@ SID36565:
 SID36566:
         name: fxfeedvalidator-service
         fileAllowedType: csv,json
-        fileUploadDir: D:\\CPay\\upload\\FX_Upload\\
+        fileUploadDir: /home/centos/apps/upload/FX_Upload/
         kafkaId: KT1010
 SID36567:
         name: fxfeeddb-service
