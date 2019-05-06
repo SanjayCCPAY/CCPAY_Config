@@ -207,25 +207,25 @@ fx:
             active: AA
 
 # ---- Processor Configuration
-processorList: P97638399640359623,P97638399640382820
+processorList: P97770717717807916,P97638399640382820
 processorService:
-    P97638399640359623:
+    P97770717717807916:
         serviceList: SID36562,SID36563
         fileTransferChannel: SFTP
         fileTransfer: LOCAL 
         outgoingFile:  
-                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
-                    finalFilePath: D://temp//CCPAY//P97638399640359623//outgoing//
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/preprocess/
+                    finalFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/outgoing/
                     fileFormat: CSV
         encryption: 
                     type: PGP
-                    publicKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//publicKey.asc
-                    secretKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//secretKey.asc
+                    publicKeyLocation: /home/centos/apps/partners/processor_id/P97770717717807916/pgpKey/publicKey.asc
+                    secretKeyLocation: /home/centos/apps/partners/processor_id/P97770717717807916/pgpKey/secretKey.asc
                     passphrase: Admin@321$
                     asciiArmored: true
         incomingFile:
-                    incomingFilePath: D://temp//CCPAY//P97638399640359623//incoming//
-                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
+                    incomingFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/incoming/
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/preprocess/
                     fileFormat: CSV
                         
                     
@@ -234,8 +234,8 @@ processorService:
         fileTransferChannel: SFTP
         fileTransfer: REMOTE
         outgoingFile:  
-                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
-                    finalFilePath: D://temp//CCPAY//P97638399640382820//outgoing//
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/preprocess/
+                    finalFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/outgoing/
                     fileFormat: CSV
                     sftp:
                         host: 199.175.44.205
@@ -247,6 +247,6 @@ processorService:
                     type: AES
                     key: Admin@321$
         incomingFile:
-                    incomingFilePath: D://temp//CCPAY//P97638399640382820//incoming//
-                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
+                    incomingFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/incoming/
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/preprocess/
                     fileFormat: CSV
