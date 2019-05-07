@@ -207,25 +207,25 @@ fx:
             active: AA
 
 # ---- Processor Configuration
-processorList: P97770717717807916,P97638399640382820
+processorList: P97638399640359849,P97638399640382820
 processorService:
     P97770717717807916:
         serviceList: SID36562,SID36563
         fileTransferChannel: SFTP
         fileTransfer: LOCAL 
         outgoingFile:  
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/preprocess/
-                    finalFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/outgoing/
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/preprocess/
+                    finalFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/outgoing/
                     fileFormat: CSV
         encryption: 
                     type: PGP
-                    publicKeyLocation: /home/centos/apps/partners/processor_id/P97770717717807916/pgpKey/publicKey.asc
-                    secretKeyLocation: /home/centos/apps/partners/processor_id/P97770717717807916/pgpKey/secretKey.asc
+                    publicKeyLocation: /home/centos/apps/partners/processor_id/P97638399640359849/pgpKey/publicKey.asc
+                    secretKeyLocation: /home/centos/apps/partners/processor_id/P97638399640359849/pgpKey/secretKey.asc
                     passphrase: Admin@321$
                     asciiArmored: true
         incomingFile:
-                    incomingFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/incoming/
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97770717717807916/preprocess/
+                    incomingFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/incoming/
+                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/preprocess/
                     fileFormat: CSV
                         
                     
