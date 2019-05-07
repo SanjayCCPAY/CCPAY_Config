@@ -209,7 +209,7 @@ fx:
 # ---- Processor Configuration
 processorList: P97638399640359849,P97638399640382820
 processorService:
-    P97770717717807916:
+    P97638399640359849:
         serviceList: SID36562,SID36563
         fileTransferChannel: SFTP
         fileTransfer: LOCAL 
