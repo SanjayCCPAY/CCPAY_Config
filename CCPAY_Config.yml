@@ -83,8 +83,10 @@ internal:
         updateAckFileAPI: http://updateack-service/updateAckFile
         saveFxFeedAPI: http://fxfeeddb-service/saveFxFeed
         postValidPayloadAPI: http://communication-service/postValidPayload
+        postValidInvoicePayloadAPI: http://communication-service/postValidInvoicePayload
         postEmailMessageAPI: http://communication-service/postEmailMessage
         savePayloadAPI: http://payloaddb-service/savePayload
+        saveInvoicePayloadAPI: http://payloaddb-service/saveInvoicePayload
         sendEmailAPI: http://email-service/sendEmail
         otpAPIUrl: http://2fa-service/generateOtpAuthURL
         
