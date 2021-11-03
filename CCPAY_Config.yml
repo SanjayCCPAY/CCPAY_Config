@@ -144,6 +144,8 @@ SID36556:
         name: payloadvalidator-service
         fileAllowedType: rje,fin,xml,csv,json
         pifUploadDir: /home/centos/apps/upload/PIF_Upload/
+        invoiceFileAllowedType: json
+        invoiceUploadDir: /home/centos/apps/upload/Invoice_Upload/
 SID36558:
         name: authorization-Service
         verifyCode: APPR
