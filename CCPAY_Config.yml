@@ -1,4 +1,4 @@
-# ---- JWT configuration -----
+# ---- JWT configuration
 app:
     jwt:
         header: Authorization
@@ -18,14 +18,14 @@ db:
     userName: cpay
     password: Cpay@123
 
-#---- Mail Settings
+#---- Mail Settings--
 
 spring:
     mail:
         default-encoding: UTF-8
-        host: smtp.gmail.com
+        host: smtp.sendgrid.com
         username: cyberchainpay@gmail.com
-        password: xTKRHANLbLRy6aG
+        password: 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
         port: 587
         protocol: smtp
         debug: true
@@ -99,7 +99,7 @@ portal:
     profile:
         ProfileAllowedFileType: "/(csv|json)$/"
         ProfileMaxFileAllowedSize: 10000000
-    url: http://3.16.194.239:36580 
+    url: http://localhost:8080 
         
 
     
@@ -143,7 +143,9 @@ SID36555:
 SID36556:
         name: payloadvalidator-service
         fileAllowedType: rje,fin,xml,csv,json
-        pifUploadDir: /home/centos/apps/upload/PIF_Upload/
+        pifUploadDir: D:\\CPay\\upload\\PIF_Upload\\
+        invoiceFileAllowedType: json
+        invoiceUploadDir: D:\\CPay\\upload\\Invoice_Upload\\
 SID36558:
         name: authorization-Service
         verifyCode: APPR
@@ -154,12 +156,13 @@ SID36558:
         authorizedLineage: Fund tranfer initiated
 SID36559:
         name: filewatcher-service
-        statusUpdateCSV: /var/lib/mysql/email/
+        statusUpdateCSV: D:\\CPay\\Email\\
 SID36561: 
         name: getProcessor-Service
         kafkaId: KT1004
 SID36562:
         name: transformation-Service
+        fundTransferProgress: FDSP
         kafkaId: KT1005
 SID36563: 
         name: encryption-Service
@@ -173,7 +176,7 @@ SID36565:
 SID36566:
         name: fxfeedvalidator-service
         fileAllowedType: csv,json
-        fileUploadDir: /home/centos/apps/upload/FX_Upload/
+        fileUploadDir: D:\\CPay\\upload\\FX_Upload\\
         kafkaId: KT1010
 SID36567:
         name: fxfeeddb-service
@@ -192,13 +195,13 @@ supportedEncryption: PGP,AES
 fx:
     consumer:
         C97770717717725317: 
-            KRW: 97638399640359623
-            CAD: 50000003
-            EUR: 97638399640344523
-            INR: 50000001
-            GBP: 50000006
-            JPY: 97638399640359849
-            PHP: 97638399640344342
+            KRW: 50000004
+            CAD: 50000004
+            EUR: 50000004
+            INR: 50000004
+            GBP: 50000004
+            JPY: 50000004
+            PHP: 50000004
             
             minimumTime: 10    
     availability:
@@ -210,25 +213,25 @@ fx:
             active: AA
 
 # ---- Processor Configuration
-processorList: P97638399640359849,P97638399640382820
+processorList: P97638399640359623,P97638399640382820
 processorService:
-    P97638399640359849:
+    P97638399640359623:
         serviceList: SID36562,SID36563
         fileTransferChannel: SFTP
         fileTransfer: LOCAL 
         outgoingFile:  
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/preprocess/
-                    finalFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/outgoing/
+                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
+                    finalFilePath: D://temp//CCPAY//P97638399640359623//outgoing//
                     fileFormat: CSV
         encryption: 
                     type: PGP
-                    publicKeyLocation: /home/centos/apps/partners/processor_id/P97638399640359849/pgpKey/publicKey.asc
-                    secretKeyLocation: /home/centos/apps/partners/processor_id/P97638399640359849/pgpKey/secretKey.asc
+                    publicKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//publicKey.asc
+                    secretKeyLocation: D://temp//CCPAY//P97638399640359623//pgpKey//secretKey.asc
                     passphrase: Admin@321$
                     asciiArmored: true
         incomingFile:
-                    incomingFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/incoming/
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640359849/preprocess/
+                    incomingFilePath: D://temp//CCPAY//P97638399640359623//incoming//
+                    preProcessFilePath: D://temp//CCPAY//P97638399640359623//preprocess//
                     fileFormat: CSV
                         
                     
@@ -237,8 +240,8 @@ processorService:
         fileTransferChannel: SFTP
         fileTransfer: REMOTE
         outgoingFile:  
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/preprocess/
-                    finalFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/outgoing/
+                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
+                    finalFilePath: D://temp//CCPAY//P97638399640382820//outgoing//
                     fileFormat: CSV
                     sftp:
                         host: 199.175.44.205
@@ -250,6 +253,6 @@ processorService:
                     type: AES
                     key: Admin@321$
         incomingFile:
-                    incomingFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/incoming/
-                    preProcessFilePath: /home/centos/apps/partners/processor_id/P97638399640382820/preprocess/
+                    incomingFilePath: D://temp//CCPAY//P97638399640382820//incoming//
+                    preProcessFilePath: D://temp//CCPAY//P97638399640382820//preprocess//
                     fileFormat: CSV
