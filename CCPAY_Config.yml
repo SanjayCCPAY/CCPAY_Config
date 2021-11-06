@@ -193,7 +193,7 @@ supportedEncryption: PGP,AES
 # ---- FX Consumer
 fx:
     consumer:
-        C97770717717725317: 
+        C97770717717725321: 
             KRW: 97638399640359623
             CAD: 50000003
             EUR: 97638399640344523
